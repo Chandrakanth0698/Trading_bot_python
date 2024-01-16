@@ -28,3 +28,4 @@ for ticker in all_stocks:
         time.sleep(time.time() - start_time)
 
 close_price = close_price.iloc[::-1]
+close_price.fillna()
