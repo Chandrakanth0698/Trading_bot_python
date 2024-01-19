@@ -17,7 +17,9 @@ cl_price = pd.DataFrame()
 # looping over tickers and filling data with closeprices of tickers
 for ticker in tickers:
     cl_price[ticker] = yf.download(ticker,start,end)["Adj Close"]
-    
+
+cl_price['AAPL'] = yf.download('AAPL', start, end)["Adj Close"]
+
 # dropping NaN values
 cl_price.dropna(axis=0, how="any",inplace=True)
 
