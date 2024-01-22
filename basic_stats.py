@@ -29,3 +29,7 @@ daily_return = cl_price.pct_change()
 # daily_return = cl_price/cl_price.shift(1)
 
 daily_return.describe()
+cl_price.plot()
+daily_return.plot()
+# to get a window of values
+daily_return.rolling(window=10).mean().head(11)
