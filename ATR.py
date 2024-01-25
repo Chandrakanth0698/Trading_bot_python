@@ -17,6 +17,13 @@ for ticker in tickers:
     ohlcv[ticker] = temp
     
 def ATR(DF,length=14):
+    """
+    ATR = average true range
+    it is a volatility indicator especially volatility caused by price gaps or limit moves.
+    calculation:
+        True range = max(current_high - current_low, abs(curr_high - prev_close), abs(curr_close - prev_close))
+        then we take exponential moving avg for true range to get avg of the True Range(EMA)
+    """
     df= DF.copy()
     df["cur_delta"] = df["High"] - df["Low"]
     df["abs_hc"] = abs(df["High"] - df["Adj Close"].shift(1))
